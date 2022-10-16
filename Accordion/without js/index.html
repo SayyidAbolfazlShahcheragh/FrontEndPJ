@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Accordion</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul {
+            list-style-type: none;
+            /* border: 1px solid black; */
+            display: block;
+            width: 50%;
+            font: 1.5rem sans-serif;
+        }
+
+        ul li {
+            text-align: center;
+            margin: 10px 0;
+            transition: all 1s linear 0s;
+            overflow: hidden;
+            border: 1px solid black;
+            border-radius: 8px;
+        }
+
+        ul li label {
+            display: block;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        ul input {
+            display: none;
+        }
+
+        ul input:checked+li p {
+            border-top: 1px solid black;
+            height: 150px;
+            /* if you used percent or auto not work animation*/
+            padding: 10px;
+        }
+
+        ul li p {
+            height: 1px;
+            text-align: justify;
+            user-select: none;
+            overflow: hidden;
+            transition: all 200ms linear 0s;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <input type="checkbox" id="sec1">
+        <li>
+            <label for="sec1">section 1</label>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis harum dignissimos eveniet, reprehenderit ea error. Sequi pariatur aut sit, quas repellendus itaque quae maxime, excepturi id quibusdam at, recusandae quidem?</p>
+        </li>
+        <input type="checkbox" id="sec2">
+        <li>
+            <label for="sec2">section 2</label>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis harum dignissimos eveniet, reprehenderit ea error. Sequi pariatur aut sit, quas repellendus itaque quae maxime, excepturi id quibusdam at, recusandae quidem?</p>
+        </li>
+        <input type="checkbox" id="sec3">
+        <li>
+            <label for="sec3">section 3</label>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis harum dignissimos eveniet, reprehenderit ea error. Sequi pariatur aut sit, quas repellendus itaque quae maxime, excepturi id quibusdam at, recusandae quidem?</p>
+        </li>
+    </ul>
+</body>
+
+</html>

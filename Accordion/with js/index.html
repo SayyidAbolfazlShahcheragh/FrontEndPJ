@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: top;
+            align-items: center;
+            font: 1rem sans-serif;
+            padding: 10px 0;
+            flex-flow: column nowrap;
+        }
+
+        ul {
+            list-style-type: none;
+            width: 75%;
+            height: auto;
+        }
+
+        ul li {
+            width: 100%;
+            height: auto;
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 10px 10px 5px 10px;
+            margin: 10px;
+        }
+
+        ul li h1 {
+            height: 100%;
+            text-align: center;
+            text-transform: capitalize;
+            font-weight: normal;
+        }
+
+        h1 a {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            color: #000;
+        }
+
+        p {
+            height: 0;
+            overflow: hidden;
+            text-align: justify;
+            font: 1.3rem sans-serif;
+            margin: 5px 0 0 0 ;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li>
+            <h1>
+                <a href="#">section 1</a>
+            </h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sit ducimus deserunt unde fugit illo voluptates quibusdam iusto, itaque molestias error tempore asperiores neque iure nulla consequuntur. Rem, minus mollitia!</p>
+        </li>
+        <li>
+            <h1>
+                <a href="#">section 2</a>
+            </h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sit ducimus deserunt unde fugit illo voluptates quibusdam iusto, itaque molestias error tempore asperiores neque iure nulla consequuntur. Rem, minus mollitia!</p>
+        </li>
+        <li>
+            <h1>
+                <a href="#">section 3</a>
+            </h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sit ducimus deserunt unde fugit illo voluptates quibusdam iusto, itaque molestias error tempore asperiores neque iure nulla consequuntur. Rem, minus mollitia!</p>
+        </li>
+
+    </ul>
+
+    <script type="text/javascript">
+        let buttons = document.getElementsByTagName("a");
+
+        Array.from(buttons).forEach(btn => {
+            btn.addEventListener('click', e => {
+                let para = e.currentTarget.parentElement.nextElementSibling;
+                let height = para.offsetHeight;
+                let updateHeight=(callback)=>{para.style.height=`${callback()}px`;}
+                if(height>0){
+                    let id = setInterval(() => {
+                        updateHeight(()=>--height);
+                        if(height<=0) {
+                            clearInterval(id)
+                            para.style.borderTop = 'none';
+                        };
+                    }, 5);
+                }else{
+                    para.style.borderTop='2px dashed black';
+                    let id = setInterval(() => {
+                        updateHeight(() => ++height);
+                        if (height >= 120) 
+                            clearInterval(id)
+                        
+                    }, 5);
+                }
+                console.log(height);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
