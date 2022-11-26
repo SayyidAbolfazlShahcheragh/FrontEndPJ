@@ -1,0 +1,146 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.clock {
+    overflow: hidden;
+    display: flex;
+    font-size: 500px;
+    width: 1em;
+    height: 1em;
+    border-radius: 100%;
+    box-shadow: 0 0 30px 0 rgb(0 0 0 / .5) inset;
+    padding: 10px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.clock>ul {
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    position: inherit;
+}
+
+.clock>ul>li {
+    top: 0;
+    position: absolute;
+    font: bold italic 1.5rem sans-serif;
+    width: inherit;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    --degree: 0;
+    transform: rotate(var(--degree));
+}
+
+/* set degree zero for number */
+.clock>ul>li span {
+    transform: rotate(calc(-1 * var(--degree)));
+}
+
+.clock>ul>li:is(:nth-child(3), :nth-child(6), :nth-child(9), :nth-child(12), ) {
+    font-size: 2rem;
+}
+
+.clock>ul>li:nth-child(1) {
+    --degree: calc(360deg / 12 * 1);
+}
+
+.clock>ul>li:nth-child(2) {
+    --degree: calc(360deg / 12 * 2);
+}
+
+.clock>ul>li:nth-child(3) {
+    --degree: calc(360deg / 12 * 3);
+}
+
+.clock>ul>li:nth-child(4) {
+    --degree: calc(360deg / 12 * 4);
+}
+
+.clock>ul>li:nth-child(5) {
+    --degree: calc(360deg / 12 * 5);
+}
+
+.clock>ul>li:nth-child(6) {
+    --degree: calc(360deg / 12 * 6);
+}
+
+.clock>ul>li:nth-child(7) {
+    --degree: calc(360deg / 12 * 7);
+}
+
+.clock>ul>li:nth-child(8) {
+    --degree: calc(360deg / 12 * 8);
+}
+
+.clock>ul>li:nth-child(9) {
+    --degree: calc(360deg / 12 * 9);
+}
+
+.clock>ul>li:nth-child(10) {
+    --degree: calc(360deg / 12 * 10);
+}
+
+.clock>ul>li:nth-child(11) {
+    --degree: calc(360deg / 12 * 11);
+}
+
+.clock>ul>li:nth-child(12) {
+    --degree: calc(360deg / 12 * 12);
+}
+
+.clock::after {
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    background: #f00;
+    border-radius: 100%;
+    display: block;
+    position: absolute;
+}
+
+.clock :is(.hours, .minutes, .seconds) {
+    width: 2px;
+    height: .45em;
+    margin-top: .05em;
+    background: red;
+    position: absolute;
+    border-radius: 100%;
+    top: 0;
+    left: 50%;
+    --degree: 0;
+    transform-origin: bottom;
+    transform: translateX(-50%) rotate(calc(var(--degree) * 1deg));
+}
+
+.clock .hours {
+    border-radius: 20px;
+    height: .3em;
+    margin-top: .2em;
+    width: 8px;
+    background: #000;
+}
+
+.clock .minutes {
+    border-radius: 20px;
+    height: .40em;
+    margin-top: .1em;
+    width: 4px;
+    background: #000;
+}
